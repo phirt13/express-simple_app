@@ -89,11 +89,6 @@ $(function() {
       },
       error: function() {
         console.log('sucks dude');
-      },
-      complete: function() {
-        addTodo
-        //replace these with regular append after
-        // location.reload();
       }
 
     });
@@ -166,8 +161,8 @@ $(function() {
       success: function(data) {
         console.log(data);
       },
-      complete: function() {
-        location.reload();
+      erro: function() {
+        console.log('no good');
       }
     })
   }));
