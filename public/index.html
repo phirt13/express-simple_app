@@ -11,7 +11,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/module.css">
     <link rel="stylesheet" href="css/state.css">
   </head>
 
@@ -23,16 +23,15 @@
       <h1>Mongo Todo</h1>
     </header>
 
-    <main role="main">
+    <main class="main-container" role="main">
       <article id="list_container" role="article">
         <ul id="mongo_list">
         </ul>
-
       </article>
-          <form id="todo_maker">
-          <input id="new_todo" type="text" value="" placeholder="new todo" required></input>
-          <button id="submit_todo">add</button>
-        </form>
+      <form id="todo_maker" class="todo-maker-section">
+        <input id="new_todo" type="text" value="" placeholder="new todo" required></input>
+        <button id="submit_todo">add</button>
+      </form>
     </main>
 
     <footer role="contentinfo">
@@ -45,6 +44,6 @@
 <!-- Check for updated on google developers -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/ajax.js"></script>
-<Script src="js/ajax2.js"></script>
+<Script src=""></script>
 
 </html>

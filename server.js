@@ -14,8 +14,8 @@ require('./routes/todos_routes')(todoRoutes);
 
 app.use('/api', todoRoutes);
 
-app.listen(process.env.PORT || 3000, function() {
-  console.log('Server running on port ' + (process.env.PORT || 3000));
+app.listen(process.env.PORT || 5000, function() {
+  console.log('Server running on port ' + (process.env.PORT || 5000));
 });
 
 

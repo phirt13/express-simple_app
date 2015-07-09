@@ -33,7 +33,6 @@ $(function() {
       },
       complete: function() {
 
-        // $('#list_container').append('<ul id="mongo_list"></ul>');
         for(var i = 0; i < todos.length; i++) {
           var todo = todos[i].todo;
           var todoId = todos[i]._id;
@@ -41,7 +40,7 @@ $(function() {
            '<textarea disabled id="">' + todo + '</textarea>' +
            '<section class="todo-toggles">' +
            '<button id="edit" class="toggle-edit">edit</button>' +
-           '<button id="done" class="toggle-edit-done">done</button>' +
+           '<button id="save" class="toggle-edit-save">save</button>' +
            '<button id="delete" class="toggle-delete">del</button>' +
            '</section>' +
            '</li>';
@@ -59,7 +58,6 @@ $(function() {
     console.log($todoInput.val());
 
     var addTodo = new TodoModel($todoInput.val());
-
     var mongoTodo = JSON.stringify(addTodo, ['todo']);
 
     console.log(mongoTodo);
@@ -80,7 +78,7 @@ $(function() {
          '<textarea disabled id="">' + todo + '</textarea>' +
          '<section class="todo-toggles">' +
          '<button id="edit" class="toggle-edit">edit</button>' +
-         '<button id="done" class="toggle-edit-done">done</button>' +
+         '<button id="save" class="toggle-edit-save">save</button>' +
          '<button id="delete" class="toggle-delete">del</button>' +
          '</section>' +
          '</li>';
@@ -118,8 +116,8 @@ $(function() {
       success: function() {
         console.log('deleted');
       },
-      err: function(err) {
-        console.log(err);
+      err: function() {
+        console.log("That did not go through");
       }
     });
 
@@ -133,7 +131,7 @@ $(function() {
 
   }));
 
-  $(mongo_list).on('click', '.toggle-edit-done', (function() {
+  $(mongo_list).on('click', '.toggle-edit-save', (function() {
 
     $('textarea').prop('disabled', true);
 
