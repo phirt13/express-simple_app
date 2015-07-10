@@ -12,7 +12,13 @@ module.exports = function(router) {
     console.log('Inside create todos!');
     console.log(req.body);
 
+
     var newTodoData = JSON.parse(JSON.stringify(req.body));
+    //this is a fail-catch to makes sure that the info
+    //is in JSON format.
+
+    console.log(typeof(newTodoData));
+
     var newTodo = new Todo(newTodoData);
 
     newTodo.save(function(err, newTodo) {
