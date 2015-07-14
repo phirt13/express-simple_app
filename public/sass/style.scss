@@ -57,7 +57,7 @@ $font-family: 'Open Sans', sans-serif;
   color: $color;
 }
 
-@mixin bgColor($bgColor) {
+@mixin bgColor($bgColor...) {
   background-color: $bgColor;
 }
 
@@ -71,7 +71,7 @@ body {
 
 header {
   h1 {
-    @include font(2.5em, 700, rgba(255, 13, 84, 1.0));
+    @include font(2.5em, 700, rgb(255, 13, 84));
   }
 }
 
