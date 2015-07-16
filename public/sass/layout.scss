@@ -1,0 +1,53 @@
+@mixin marginSettings($top, $right, $bottom, $left) {
+  margin: $top $right $bottom $left;
+}
+
+@mixin paddingSettings($padding) {
+  padding: $padding;
+}
+
+@mixin dimensions($width, $height) {
+  height: $height;
+  width: $width;
+}
+
+body {
+  @include dimensions(60%, auto);
+  @include marginSettings(0, auto, 0, auto);
+}
+
+header {
+  @include marginSettings(0, auto, 0, auto);
+  @include paddingSettings(1em);
+  h1 {
+    text-align: center;
+  }
+}
+
+main {
+  @include dimensions(60%, auto);
+  @include marginSettings(0, auto, 0, auto);
+  @include paddingSettings(1em);
+  text-align: center;
+  li {
+    @include marginSettings(.5em, 0, .5em, 0);
+  }
+  textarea {
+    @include dimensions(100%, auto);
+  }
+  .todo-toggles {
+  @include paddingSettings(.7em);
+    button {
+      @include paddingSettings(.7em);
+      @include marginSettings(0, .5em, 0, .5em);
+    }
+  }
+  .todo-maker-section {
+    @include paddingSettings(1em);
+    input {
+      @include paddingSettings(.5em);
+      @include dimensions(70%, auto);
+    }
+  }
+}
+

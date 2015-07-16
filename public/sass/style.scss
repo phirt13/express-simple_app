@@ -49,34 +49,62 @@ table {
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800);
 
+$font-family: 'Open Sans', sans-serif;
+
+@mixin font($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin bgColor($bgColor...) {
+  background-color: $bgColor;
+}
+
+@mixin border($lineWeigth, $lineType, $lineColor) {
+  border: $lineWeigth $lineType $lineColor;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-family
+}
+
+header {
+  h1 {
+    @include font(2.5em, 700, rgb(255, 13, 84));
+  }
 }
 
 main {
-  background-color: rgba(184, 184, 159, 0.2);
+  @include bgColor(rgba(184, 184, 159, 0.2));
+  textarea {
+    @include font(1em, 400, black);
+  }
+  button {
+    @include font(.8em, 300, black);
+    @include bgColor(transparent);
+    @include border(.1em, solid, rgba(6, 107, 255, 0.5));
+    border-radius: .5em;
+    &:hover {
+      color: white;
+      @include bgColor(rgba(6, 107, 255, 0.5));
+    }
+  }
+  .toggle-delete {
+    @include bgColor(transparent);
+    @include border(.1em, solid, rgba(6, 232, 184, 0.5));
+    &:hover {
+      color: white;
+      @include bgColor(rgba(6, 232, 184, 0.5));
+      @include border(.1em, solid, rgba(6, 232, 184, 0.5));
+    }
+  }
+  .todo-maker-section {
+    @includes border(.1em, solid, tranparent);
+    @include bgColor(rgba(184, 184, 159, 0.5));
+  }
 }
 
-h1 {
-  font-size: 2.5em;
-  font-weight: 700;
-  color: rgba(255, 13, 84, 1.0);
-}
 
-button {
-  font-size: .8em;
-  font-weight: 300;
-  background-color: transparent;
-  border: .1em solid rgba(6, 107, 255, 0.5);
-  border-radius: .5em;
-}
 
-textarea {
-  font-size: 1em;
-}
 
-input {
-  width: 70%;;
-  font-size: 1em;
-  padding: .5em;
-}

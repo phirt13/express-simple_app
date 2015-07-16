@@ -116,7 +116,7 @@ $(function() {
       success: function() {
         console.log('deleted');
       },
-      err: function() {
+      error: function() {
         console.log("That did not go through");
       }
     });
@@ -159,15 +159,10 @@ $(function() {
       success: function(data) {
         console.log(data);
       },
-      erro: function() {
+      error: function() {
         console.log('no good');
       }
     })
   }));
 
-
 });
-
-
-
-
