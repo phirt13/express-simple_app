@@ -53,6 +53,7 @@ module.exports = function(router) {
   router.put('/update_todos', function(req, res) {
 
     console.log('Inside update todos!');
+    console.log(req.body);
 
     Todo.update({ _id : req.body._id }, { todo : req.body.todo }, function(err, result) {
       if(err) {
@@ -76,12 +77,12 @@ module.exports = function(router) {
     });
   });
 
-  router.delete('/remove_todos', function(req, res) {
+  router.delete('/remove_todos:todoID', function(req, res) {
 
     console.log('Inside remove todo!');
     console.log(req.body);
 
-    Todo.remove({ _id : req.body._id }, function(err, result) {
+    Todo.remove({'_id': req.params.todoID}, function(err, result) {
       if(err) {
         console.log(err);
         return res.status(500).json({ msg : 'internal server error'});

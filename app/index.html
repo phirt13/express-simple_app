@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-ng-app="todoApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mongo Todo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+
+  </head>
+
+<!-- CONTENT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <body>
+
+    <header role="banner">
+      <h1>Mongo Todo</h1>
+    </header>
+
+    <main class="main-container" role="main" data-ng-controller="mainController">
+      <article id="list_container" role="article">
+        <ul id="mongo_list">
+          <li data-ng-attr-id="{{todo._id}}" data-ng-repeat="todo in todos track by todo._id">
+            <!-- <textarea data-ng-model="todo.todo" id=""> {{todo.todo}} </textarea> -->
+            <p> {{todo.todo}} </p>
+            <form data-ng-if="todo.update">
+              <input type="text" data-ng-model="todo.todo" data-ng-if="todo.update">
+              </input>
+            </form>
+            <section class="todo-toggles">
+              <button data-ng-click="todo.update = true" data-ng-if="!todo.update" id="edit" class="toggle-edit">edit</button>
+              <button data-ng-if="todo.update" data-ng-click="updateTodo(todo._id, todo.todo)(todo)" id="save" class="toggle-edit-save">save</button>
+              <button data-ng-click="destroyTodo(todo._id)" id="delete" class="toggle-delete">del</button>
+            </section>
+          </li>
+        </ul>
+      </article>
+      <form id="todo_maker" class="todo-maker-section" data-ng-submit="submitForm(newTodo)">
+        <input id="new_todo" type="text" value="" placeholder="new todo" data-ng-model="newTodo.todo" required></input>
+        <button type="submit" id="submit_todo">add</button>
+      </form>
+    </main>
+
+    <footer role="contentinfo">
+    </footer>
+
+  </body>
+
+<!-- JAVASCRIPT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<!-- Check for updated on google developers -->
+<script src="js/bundle.js"></script>
+<!-- <script src="js/controllers/todoController.js"></script> -->
+
+</html>
