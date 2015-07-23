@@ -24,6 +24,15 @@ header {
   }
 }
 
+input {
+  // @include paddingSettings(.5em);
+  @include dimensions(100%, auto);
+  @include marginSettings(.5em, auto, .5em, auto);
+  display: block;
+  box-sizing: border-box;
+
+}
+
 main {
   @include dimensions(60%, auto);
   @include marginSettings(0, auto, 0, auto);
@@ -45,7 +54,6 @@ main {
   .todo-maker-section {
     @include paddingSettings(1em);
     input {
-      @include paddingSettings(.5em);
       @include dimensions(70%, auto);
     }
   }

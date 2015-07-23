@@ -77,8 +77,10 @@ header {
 
 main {
   @include bgColor(rgba(184, 184, 159, 0.2));
-  textarea {
+  p {
     @include font(1em, 400, black);
+    @include bgColor(white);
+    padding: 2em;
   }
   button {
     @include font(.8em, 300, black);
