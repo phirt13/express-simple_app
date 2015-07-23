@@ -11,7 +11,7 @@ gulp.task('sass', function() {
   gulp.src('./app/sass/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(minifyCSS({compaibility: 'ie8'}))
-    .pipe(gulp.dest('./public/css'));
+    .pipe(gulp.dest('./public/css/'));
 });
 
 gulp.task('sass:watch', function() {
@@ -19,10 +19,10 @@ gulp.task('sass:watch', function() {
 });
 
 gulp.task('webpack', function() {
-  return gulp.src('app/js/**/*.js')
+  return gulp.src('./app/js/**/*.js')
     .pipe(webpack({
       output: {
-        filename: 'super.js'
+        filename: 'bundle.js'
       }
      }))
       .pipe(uglify())
@@ -35,12 +35,12 @@ gulp.task('copy', function() {
     spare: true
   };
 
-  return gulp.src('app/**/*.html')
-    .pipe(gulp.dest('public/'))
+  return gulp.src('./app/**/*.html')
+    .pipe(gulp.dest('./public/'))
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./public/'));
 });
 
-gulp.task('build', ['copy', 'webpack', 'sass']);
+gulp.task('build', ['sass', 'copy', 'webpack']);
 gulp.task('default', ['build']);
 
