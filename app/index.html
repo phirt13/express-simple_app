@@ -40,10 +40,10 @@
           </li>
         </ul>
       </article>
-      <form id="todo_maker" class="todo-maker-section" data-ng-submit="submitForm(newTodo)">
-        <input id="new_todo" type="text" value="" placeholder="new todo" data-ng-model="newTodo.todo" required></input>
-        <button type="submit" id="submit_todo">add</button>
-      </form>
+      <section data-todo-directive></section>
+      <a href="#/about">About</a>
+      <div data-ng-view></div>
+
     </main>
 
     <footer role="contentinfo">

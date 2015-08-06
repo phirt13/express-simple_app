@@ -19,6 +19,7 @@
   "homepage": "https://github.com/phirt13/express-simple_app",
   "dependencies": {
     "angular": "^1.4.3",
+    "angular-route": "^1.4.3",
     "body-parser": "^1.13.2",
     "express": "^4.13.1",
     "mongoose": "^4.0.6",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "angular": "^1.4.3",
+    "gulp": "^3.9.0",
     "gulp-minify-css": "^1.2.0",
     "gulp-minify-html": "^1.0.4",
     "gulp-sass": "^2.0.4",
